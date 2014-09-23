@@ -17,18 +17,18 @@ def parser(contents):
 
 
 	title = re.search(titlePattern,contents).group(1)
-	date = re.search(datePattern,contents).group(1) if re.search(datePattern,contents) else ''
-	speaker = re.search(speakerPattern,contents).group(1) if re.search(speakerPattern,contents) else ''
+	date = re.search(datePattern,contents).group(1) if re.search(datePattern,contents) != None else ''
+	speaker = re.search(speakerPattern,contents).group(1) if re.search(speakerPattern,contents)  != None else ''
 #	body = re.search(bodyPattern,contents,re.MULTILINE).group(1)
 	prevUrl = re.search(prevPattern,contents).group(1)
 	nextUrl = re.search(nextPattern,contents).group(1)
 	print(title)
-#	print(body)
+	print(date)
+	print(speaker)
 	print(prevUrl)
 	print(nextUrl)
 
 
 
 
-
-parser(wget('http://www2.pref.okinawa.jp/oki/Gikairep1.nsf/481e05e7edaca1db49256f540004c033/7fb73c2cf7988bc8492579e30024d9b5?OpenDocument'))
+parser(wget('http://www2.pref.okinawa.jp/oki/Gikairep1.nsf/481e05e7edaca1db49256f540004c033/76964336a920266c49257c8900233a0c?OpenDocument'))
