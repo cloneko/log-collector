@@ -20,7 +20,11 @@ class Collector:
         return self.parser(content)
 
     def wget(self,url): 
-        return urllib.request.urlopen(url).read().decode('sjis')
+        try:
+            return urllib.request.urlopen(url).read().decode('cp932')
+        except UnicodeDecodeError:
+            print('Error:' + url)
+            pass
 
     def parser(self,content):
 
